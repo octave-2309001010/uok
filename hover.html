@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #submit{
+            background-color: blueviolet;
+        }
+        #submit:hover{
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    <form >
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="name">
+        </div>
+        
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="email" required>
+        </div>
+        
+        <div>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Phone">
+        </div>
+        
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="2" required></textarea>
+        </div>
+        
+        <div >
+            <input type="submit" value="Submit" id="submit">
+            <input type="reset" value="Clear" id="clear">
+        </div>
+    </form>
+</body>
+</html>
