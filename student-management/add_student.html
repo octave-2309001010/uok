@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Student</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Add Student</h1>
+
+    <!-- Form to add student -->
+    <form id="studentForm" action="add_student.php" method="POST">
+      <input type="text" name="name" id="name" placeholder="Student Name" required>
+      <input type="number" name="marks" id="marks" placeholder="Marks" required>
+      <button type="submit">Add Student</button>
+    </form>
+
+    <!-- List of students -->
+    <h2>List of Added Students</h2>
+    <table id="studentsList">
+      <tr>
+        <th>Name</th>
+        <th>Marks</th>
+      </tr>
+      <?php
+        // Display list of students
+        if (count($students) > 0) {
+          foreach ($students as $student) {
+            echo "<tr><td>" . $student['name'] . "</td><td>" . $student['marks'] . "</td></tr>";
+          }
+        } else {
+          echo "<tr><td colspan='2'>No students added yet.</td></tr>";
+        }
+      ?>
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

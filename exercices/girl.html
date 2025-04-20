@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Girl Scout Cookie Order</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .cookie-item {
+      margin: 15px 0;
+      font-size: 16px;
+    }
+
+    .cookie-item input[type="text"] {
+      width: 60px;
+      padding: 5px;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+
+    .shipping, .donation {
+      margin-bottom: 20px;
+    }
+
+    .shipping label, .donation label {
+      display: block;
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .shipping input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .donation input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    .submit-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #2980b9;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #7f8c8d;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Order Your Girl Scout Cookies</h1>
+
+    <form action="cookies.php" method="post">
+      <div class="cookie-item">
+        <label for="input1">Samoas x $3.50</label>
+        <input id="input1" type="text" name="samoas" size="2" placeholder="Qty" />
+      </div>
+
+      <div class="cookie-item">
+        <label for="input2">Thin Mints x $4.00</label>
+        <input id="input2" type="text" name="thinmints" size="2" placeholder="Qty" />
+      </div>
+
+      <div class="shipping">
+        <p>Shipping:</p>
+        <label>
+          <input id="input4" type="radio" name="shipping" value="regular" required />
+          Regular ($7.00)
+        </label>
+        <label>
+          <input id="input5" type="radio" name="shipping" value="express" />
+          Express ($9.00)
+        </label>
+      </div>
+
+      <div class="donation">
+        <label>
+          <input id="input3" type="checkbox" name="donation" />
+          Donate $5 extra?
+        </label>
+      </div>
+
+      <div>
+        <input id="input6" type="submit" class="submit-btn" value="Buy" />
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <p>Powered by Girl Scouts. Order cookies now and support a great cause!</p>
+  </footer>
+</body>
+</html>

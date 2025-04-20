@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Management</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0077b6;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #0077b6;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-top: 10px;
+      text-decoration: underline;
+    }
+
+    #successMsg {
+      background-color: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Management</h1>
+
+    <div id="successMsg">Registration successful! Please log in.</div>
+
+    <!-- Register Form -->
+    <div id="registerForm">
+      <h2>Register</h2>
+      <form action="register.php" method="POST" onsubmit="showLoginAfterRegister()">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Register</button>
+      </form>
+      <button class="toggle-btn" onclick="toggleForm('login')">Already have an account? Login</button>
+    </div>
+
+    <!-- Login Form -->
+    <div id="loginForm" style="display: none;">
+      <h2>Login</h2>
+      <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+      <button class="toggle-btn" onclick="toggleForm('register')">No account? Register</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleForm(formType) {
+      if (formType === 'login') {
+        document.getElementById('registerForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+      } else {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('registerForm').style.display = 'block';
+        document.getElementById('successMsg').style.display = 'none';
+      }
+    }
+
+    // If redirected back after successful registration (e.g., register.php?success=1)
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('success') === '1') {
+        toggleForm('login');
+        document.getElementById('successMsg').style.display = 'block';
+      }
+    };
+  </script>
+</body>
+</html>
