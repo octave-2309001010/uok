@@ -1,0 +1,162 @@
+1. DOM Selection Methods
+📘 Theory:
+DOM selection lets you grab elements from the HTML so you can read or change them.
+
+✅ Used in:
+js
+Copy
+Edit
+const taskInput = document.querySelector('#task-input');
+const taskList = document.querySelector('#task-list');
+🧪 Methods:
+
+Method	What it does
+getElementById(id)	Selects element by ID (returns single element)
+querySelector(selector)	Selects first element matching any CSS selector
+querySelectorAll(selector)	Selects all elements (returns NodeList)
+2. Creating & Inserting Elements
+📘 Theory:
+You can build new elements in JavaScript and insert them into the DOM.
+
+✅ Used in:
+js
+Copy
+Edit
+const li = document.createElement('li');
+li.textContent = taskText;
+taskList.insertBefore(li, taskList.firstChild);
+🧪 Methods:
+
+Method	What it does
+createElement('tag')	Makes a new HTML element
+appendChild(node)	Adds at the end
+insertBefore(newNode, referenceNode)	Inserts before an existing node
+3. Removing Elements
+📘 Theory:
+You can delete elements from the page dynamically.
+
+✅ Used in:
+js
+Copy
+Edit
+li.remove(); // delete a task
+while (taskList.firstChild) {
+  taskList.removeChild(taskList.firstChild);
+}
+🧪 Methods:
+
+Method	What it does
+remove()	Deletes the element directly
+removeChild(childNode)	Removes a specific child from a parent
+4. Modifying Content
+📘 Theory:
+Change the visible text or HTML content inside an element.
+
+✅ Used in:
+js
+Copy
+Edit
+li.textContent = taskText;
+delBtn.textContent = 'Delete';
+🧪 Properties:
+
+Property	What it does
+textContent	Text inside the element (no HTML)
+innerHTML	Full HTML content
+innerText	Similar to textContent, but aware of styles
+5. Attributes
+📘 Theory:
+Attributes like href, src, data-* can be read or modified using JS.
+
+✅ Used in:
+js
+Copy
+Edit
+li.setAttribute('data-created', new Date().toISOString());
+li.getAttribute('data-created');
+li.removeAttribute('data-created');
+🧪 Methods:
+
+Method	What it does
+setAttribute(name, value)	Sets a new or existing attribute
+getAttribute(name)	Reads attribute value
+removeAttribute(name)	Removes attribute
+6. CSS Manipulation via style
+📘 Theory:
+You can change CSS styles inline with .style.property.
+
+✅ Used in:
+js
+Copy
+Edit
+li.style.cursor = 'pointer';
+item.style.display = 'flex';
+7. Class Manipulation with classList
+📘 Theory:
+You can dynamically apply or toggle CSS classes.
+
+✅ Used in:
+js
+Copy
+Edit
+li.classList.add('task-item');
+li.classList.toggle('completed');
+🧪 Methods:
+
+Method	What it does
+classList.add('class')	Adds a class
+classList.remove('class')	Removes a class
+classList.toggle('class')	Adds/removes based on presence
+8. Event Listeners & Delegation
+📘 Theory:
+Attach code to user actions (click, submit, keyup, etc). Event delegation lets you handle events on many items using a parent.
+
+✅ Used in:
+js
+Copy
+Edit
+taskForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  // add task
+});
+
+taskList.addEventListener('click', function(e) {
+  if (e.target.classList.contains('delete-btn')) {
+    e.target.parentElement.remove();
+  }
+});
+9. Local Storage
+📘 Theory:
+Web storage that saves key–value pairs even when the page reloads.
+
+✅ Used in:
+js
+Copy
+Edit
+localStorage.setItem('tasks', JSON.stringify(tasks));
+localStorage.getItem('tasks');
+localStorage.removeItem('tasks');
+🧪 Concepts:
+
+Method	Purpose
+setItem(key, value)	Save data
+getItem(key)	Retrieve data
+removeItem(key)	Delete key
+10. Forms and Input Handling
+📘 Theory:
+Use forms and input fields to accept user data.
+
+✅ Used in:
+js
+Copy
+Edit
+taskForm.addEventListener('submit', function(e) {
+  const taskText = taskInput.value.trim();
+});
+🔁 BONUS: Event Types You Used
+
+Event	Trigger
+submit	When form is submitted
+click	On any element click
+DOMContentLoaded	When HTML has loaded
+keyup	When typing in search box

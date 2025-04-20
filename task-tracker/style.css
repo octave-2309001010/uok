@@ -26,10 +26,25 @@ body {
     display: flex;
     justify-content: space-between;
     border-radius: 4px;
+    transition: all 0.3s;
   }
   
   li.completed {
     text-decoration: line-through;
     color: gray;
+    background: #d1ffd1;
+  }
+  
+  li:hover {
+    background-color: #ddd;
+  }
+  
+  .delete-btn {
+    background: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
   }
   
