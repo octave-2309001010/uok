@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Query Selector Example</title>
+</head>
+<body>
+  <button id="myButton">Click to change text</button>
+  <p class="message">we have text tommorrow</p>
+
+  <script>
+    const button = document.querySelector('#myButton');
+    const message = document.querySelector('.message');
+
+    button.addEventListener('click', () => {
+      message.textContent = 'You clicked the button text changed!';
+    });
+  </script>
+</body>
+</html>

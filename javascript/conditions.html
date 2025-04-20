@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Text Change</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            transition: color 0.3s;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading1">This is the first heading</h1>
+    <h2 id="heading2">This is the second heading</h2>
+    
+    <button id="toggleButton">Change Text</button>
+
+    <script>
+        const heading1 = document.querySelector('#heading1');
+        const heading2 = document.querySelector('#heading2');
+        const toggleButton = document.querySelector('#toggleButton');
+        
+        
+        let isChanged = false;
+        
+        // Add click event listener to the button
+        toggleButton.addEventListener('click', function() {
+            // Check if h1 exists
+            if (heading1) {
+                // Toggle h1 text
+                if (!isChanged) {
+                    heading1.textContent = "Heading 1 has been changed!";
+                    heading1.style.color = "#ff6600";
+                } else {
+                    heading1.textContent = "This is the first heading";
+                    heading1.style.color = "black";
+                }
+                
+                // Check if h2 exists
+                if (heading2) {
+                    // Also toggle h2 text
+                    if (!isChanged) {
+                        heading2.textContent = "Heading 2 has been changed!";
+                        heading2.style.color = "#0066ff";
+                    } else {
+                        heading2.textContent = "This is the second heading";
+                        heading2.style.color = "black";
+                    }
+                }
+                
+                // Toggle state
+                isChanged = !isChanged;
+            } else {
+                // If h1 doesn't exist, keep it as is
+                console.log("Heading 1 not found");
+            }
+        });
+    </script>
+</body>
+</html>
